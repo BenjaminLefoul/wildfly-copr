@@ -220,6 +220,7 @@ exit 0
 %attr(0775,root,wildfly) %dir %{confdir}/appclient
 %attr(0775,root,wildfly) %dir %{confdir}/standalone
 %attr(0775,root,wildfly) %dir %{confdir}/domain
+%attr(0775,root,wildfly) %dir %{confdir}/wildfly.d
 %attr(0700,wildfly,wildfly) %dir %{cachedir}/auth
 %attr(0600,wildfly,wildfly) %config(noreplace) %{confdir}/appclient/*.properties
 %attr(0664,wildfly,wildfly) %config(noreplace) %{confdir}/appclient/*.xml
@@ -227,6 +228,7 @@ exit 0
 %attr(0664,wildfly,wildfly) %config(noreplace) %{confdir}/standalone/*.xml
 %attr(0600,wildfly,wildfly) %config(noreplace) %{confdir}/domain/*.properties
 %attr(0664,wildfly,wildfly) %config(noreplace) %{confdir}/domain/*.xml
+%attr(0664,wildfly,wildfly) %config(noreplace) %{confdir}/wildfly.d/*.conf
 %config(noreplace) %{confdir}/%{name}.conf
 %config(noreplace) %{confdir}/jboss-cli.xml
 %{_unitdir}/%{name}.service
@@ -239,6 +241,9 @@ exit 0
 %{_docdir}/%{name}
 
 %changelog
+* Thu Apr 21 2016 Benjamin Lefoul - 1:10.0.0-2
+- Added a wildfly.d systemd configuration directory
+
 * Wed Feb 24 2016 Marek Goldmann - 1:10.0.0-1
 - Upstream 10.0.0.Final release
 
